@@ -36,14 +36,63 @@ html {
 
 .header {
     @include width(100%);
-    @include height(55px);
-    #{$bg}: #303030;
+    @include height(70px);
+    background: rgb(246, 194, 203);
+    p:nth-child(1) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span {
+            flex: 1;
+        }
+        input {
+            @include height(30px);
+            flex: 8;
+            font-size: 15px;
+            margin: 7.5px 0;
+            border: 1px solid rgb(179, 173, 173);
+            border-radius: 20px;
+            text-indent: 10px;
+        }
+    }
+    p:nth-child(2) {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        span {
+            font-size: 18px;
+        }
+    }
 }
 
 .main {
     @include width(100%);
     flex: 1;
     overflow: auto;
+    font-size: 15px;
+    p:nth-child(1) {
+        @include height(30px);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .con {
+        dl {
+            @include width(44%);
+            margin: 10px 3%;
+            float: left;
+            dt {
+                img {
+                    @include width(100%);
+                }
+            }
+            dd {
+                p {
+                    line-height: 15px;
+                }
+            }
+        }
+    }
 }
 
 .footer {
