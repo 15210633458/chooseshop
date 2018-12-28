@@ -1,0 +1,30 @@
+{
+    "name": "chooseshop",
+    "version": "1.0.0",
+    "description": "选择产品",
+    "main": "gulpfile.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/15210633458/chooseshop.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/15210633458/chooseshop/issues"
+    },
+    "homepage": "https://github.com/15210633458/chooseshop#readme",
+    "dependencies": {
+        "gulp": "^4.0.0",
+        "gulp-autoprefixer": "*",
+        "gulp-babel": "*",
+        "gulp-clean-css": "*",
+        "gulp-concat": "*",
+        "gulp-htmlmin": "*",
+        "gulp-sass": "*",
+        "gulp-uglify": "*",
+        "gulp-webserver": "*"
+    }
+}
