@@ -10,6 +10,8 @@ var server = require('gulp-webserver'); //其服务的
 var path = require('path');
 var fs = require('fs');
 var url = require('url');
+var querystring = require('querystring');
+var data = require('./data/list.json')
 
 
 gulp.task("bscss", function() {
@@ -38,10 +40,34 @@ gulp.task('server', function() {
                 var pathname = url.parse(req.url).pathname;
                 //console.log(pathname)
                 if (pathname == '/api/list') {
-                    var data = require('./data/list.json')
                     res.end(JSON.stringify({
                         data: data
                     }))
+                } else if (pathname == '/api/find') {
+                    var str = '';
+                    req.on('data', function(chunk) {
+                        str += chunk
+                    })
+                    req.on('end', function() {
+                        //console.log(str)
+                        var title = querystring.parse(str).title
+                            //console.log(title)
+                        var flag = data.find((i) => {
+                                return title == i.title
+                            })
+                            //console.log(flag)
+                        if (flag) {
+                            res.end(JSON.stringify({
+                                code: 1,
+                                data: flag
+                            }))
+                        } else {
+                            res.end(JSON.stringify({
+                                code: 0,
+                                mes: "没有此商品"
+                            }))
+                        }
+                    })
                 } else {
                     pathname = pathname == '/' ? 'index.html' : pathname;
                     res.end(fs.readFileSync(path.join(__dirname, 'src', pathname)))
