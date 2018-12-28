@@ -1,0 +1,64 @@
+[{
+    "id": "1",
+    "img": "./imgs/1.jpeg",
+    "title": "风衣",
+    "add": "山西",
+    "people": "1325",
+    "price": "225"
+}, {
+    "id": "2",
+    "img": "./imgs/2.jpeg",
+    "title": "耳环",
+    "add": "山东",
+    "people": "13425",
+    "price": "225"
+}, {
+    "id": "3",
+    "img": "./imgs/3.jpeg",
+    "title": "眼镜",
+    "add": "河北",
+    "people": "132555",
+    "price": "225"
+}, {
+    "id": "4",
+    "img": "./imgs/4.jpeg",
+    "title": "鞋子",
+    "add": "广东",
+    "people": "15425",
+    "price": "225"
+}, {
+    "id": "5",
+    "img": "./imgs/5.jpeg",
+    "title": "皮衣",
+    "add": "辽宁",
+    "people": "125325",
+    "price": "225"
+}, {
+    "id": "6",
+    "img": "./imgs/6.jpeg",
+    "title": "西裤",
+    "add": "太原",
+    "people": "15865",
+    "price": "225"
+}, {
+    "id": "7",
+    "img": "./imgs/7.jpeg",
+    "title": "牛仔裤",
+    "add": "吕梁",
+    "people": "132525",
+    "price": "225"
+}, {
+    "id": "8",
+    "img": "./imgs/8.jpeg",
+    "title": "羽绒服",
+    "add": "湖南",
+    "people": "1855",
+    "price": "111"
+}, {
+    "id": "9",
+    "img": "./imgs/9.jpeg",
+    "title": "呢子大衣",
+    "add": "上海",
+    "people": "1324585",
+    "price": "2225"
+}]

@@ -36,8 +36,12 @@ gulp.task('server', function() {
                     return res.end()
                 }
                 var pathname = url.parse(req.url).pathname;
-                if (pathname == '/apilist') {
-
+                //console.log(pathname)
+                if (pathname == '/api/list') {
+                    var data = require('./data/list.json')
+                    res.end(JSON.stringify({
+                        data: data
+                    }))
                 } else {
                     pathname = pathname == '/' ? 'index.html' : pathname;
                     res.end(fs.readFileSync(path.join(__dirname, 'src', pathname)))
