@@ -29,16 +29,20 @@ gulp.task("bscss", function() {
 gulp.task('watch', function() {
     return gulp.watch('./src/scss/*.scss', gulp.series('bscss'))
 })
-gulp.task('server', function() {
-    return gulp.src('./src')
+
+function sev(file) {
+    return gulp.src(file)
         .pipe(server({
             port: 3500,
+            host: '127.0.0.1',
+            open: true,
+            livereload: true,
             middleware: function(req, res, next) {
                 if (req.url == '/favicon.ico') {
                     return res.end()
                 }
                 var pathname = url.parse(req.url).pathname;
-                //console.log(pathname)
+                console.log(pathname)
                 if (pathname == '/api/list') {
                     res.end(JSON.stringify({
                         data: data
@@ -74,5 +78,37 @@ gulp.task('server', function() {
                 }
             }
         }))
+}
+gulp.task('server', function() {
+    sev('./src')
 })
 gulp.task('dev', gulp.series('bscss', 'server', 'watch'))
+
+//压缩
+//压缩js
+gulp.task('bUglify', function() {
+        return gulp.src(['./src/scripts/*.js', '!./src/js/*.min.js'])
+            .pipe(babel({
+                presets: ['@babel/env']
+            }))
+            .pipe(uglify())
+            .pipe(gulp.dest('./build/scripts'))
+    })
+    //压缩html
+gulp.task('bHtmlmin', function() {
+    return gulp.src('./src/**/*.html')
+        .pipe(html({ collapseWhitespace: true }))
+        .pipe(gulp.dest('./build'))
+})
+gulp.task('bCss', function() {
+    return gulp.src('./src/css/**/*.css')
+        .pipe(gulp.dest('./build/css'))
+})
+gulp.task('bimg', function() {
+    return gulp.src('./src/imgs/*.jpeg')
+        .pipe(gulp.dest('./build/imgs'))
+})
+gulp.task('bserver', function() {
+    sev('./build')
+})
+gulp.task('build', gulp.series('bUglify', 'bHtmlmin', "bCss", "bimg", "bserver"))

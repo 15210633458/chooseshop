@@ -6,6 +6,7 @@ var find = document.getElementById('find')
 
 var xhr = new XMLHttpRequest();
 xhr.open('get', '/api/list', true);
+xhr.send();
 xhr.onload = function(res) {
     if (res.target.status == 200) {
         //console.log(res.target.response)
@@ -29,7 +30,7 @@ xhr.onload = function(res) {
         con.innerHTML = html
     }
 }
-xhr.send()
+
 
 
 //搜索
